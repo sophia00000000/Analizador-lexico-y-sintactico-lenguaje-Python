@@ -32,7 +32,7 @@ Q = { q0, q_id, q_num, q_string, q_sym2, q_error }
 
 ###  Estado inicial
 
-
+q0 (estadoinicial y de aceptación por los comentarios)
 
 ### Estados de aceptación (F)
 
