@@ -5,10 +5,17 @@ análisis léxico sobre dicho código. Debe implementar un programa en Python qu
 archivo como entrada y devuelva un archivo como salida.
 
 
-# Gramática
+## Gramática
 
 ### Alfabeto (Σ)
 
+Letras y guion bajo: a-z, A-Z, _
+Dígitos: 0-9
+Espacios en blanco: espacio, tabulador, salto de línea (isspace())
+Comillas: ' y "
+Símbolos reconocidos: ( ) : . = == != -> + - * / , > <
+'#' (para comentarios)
+Cualquier otro carácter no listado → produce error léxico.
 
 ### Estados (Q)
 
@@ -29,9 +36,47 @@ Q = { q0, q_id, q_num, q_string, q_sym2, q_error }
 
 ### Estados de aceptación (F)
 
-F = { q_id, q_num, q_string*, q0}
+F = { q0, q_id, q_num, q_string }
 
-Son estados aceptantes porque una vez que se agotan las letras/dígitos el autómata acepta ese lexema, y en el caso de los strings solo es aceptante cuando se recibe la comilla de cierre;
+Aquí, todos los estados pueden llevar a aceptación después de procesar su lexema, excepto que si hay un error en q_string (cadena no cerrada) o símbolo desconocido en q0, se produce error.
 
 ### Funciónes de transición (δ)
+
+Desde q0:
+
+- isspace() → q0 (ignorar)
+- '#' → fin de línea (aceptación implícita, termina lectura)
+- Letra o _ → q_id
+- Dígito → q_num
+- Comillas (' o ") → q_string
+- Símbolo de 2 caracteres (en SIMBOLOS) → emitir token y permanecer en q0
+- Símbolo de 1 carácter (en SIMBOLOS) → emitir token y permanecer en q0
+- Otro → error léxico
+
+<br>
+
+Desde q_id:
+
+- Mientras isalnum() o _ → permanecer en q_id
+- Otro → emitir token (reservada o identificador) y regresar a q0 (sin consumir el carácter que rompió la secuencia)
+
+<br>
+
+Desde q_num:
+
+- Mientras dígito → permanecer en q_num
+- Otro → emitir token <tk_entero> y regresar a q0 (sin consumir el carácter que rompió la secuencia)
+
+<br>
+
+Desde q_string:
+
+- Mientras no se cierre la comilla → permanecer en q_string
+- Si se encuentra la misma comilla → emitir token <tk_cadena> y regresar a q0
+- Si fin de línea sin cerrar → error léxico
+
+<br>
+
+
+## Explicación del código
 
