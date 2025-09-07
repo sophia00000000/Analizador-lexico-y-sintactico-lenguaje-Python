@@ -29,7 +29,9 @@ Q = { q0, q_id, q_num, q_string, q_sym2, q_error }
 
 ### Estados de aceptación (F)
 
+F = { q_id, q_num, q_string*, q0}
 
+Son estados aceptantes porque una vez que se agotan las letras/dígitos el autómata acepta ese lexema, y en el caso de los strings solo es aceptante cuando se recibe la comilla de cierre;
 
 ### Funciónes de transición (δ)
 
