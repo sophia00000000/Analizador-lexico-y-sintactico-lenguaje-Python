@@ -1,26 +1,12 @@
-RESERVADAS = {
-    "class", "def", "if", "else", "while", "for", "return", "print",
-    "import", "from", "as", "True", "False", "None", "and", "or", "not",
-    "in", "is", "break", "continue", "pass", "self", "object", "str", "bool", "__init__", "lambda" 
-}
+RESERVADAS = {"class", "def", "if", "else", "while", "for", "return", "print",
+              "import", "from", "as", "True", "False", "None", "and", "or", "not",
+              "in", "is", "break", "continue", "pass", "self", "object", "str", "bool", "__init__", "lambda"
+             }
 
-SIMBOLOS = {
-    "(": "tk_par_izq",
-    ")": "tk_par_der",
-    ":": "tk_dos_puntos",
-    ".": "tk_punto",
-    "=": "tk_asig",
-    "==": "tk_igual",
-    "!=": "tk_distinto",
-    "->": "tk_ejecuta",
-    "+": "tk_suma",
-    "-": "tk_resta",
-    "*": "tk_mul",
-    "/": "tk_div",
-    ",": "tk_coma",
-    ">": "tk_mayor",
-    "<": "tk_menor"
-}
+SIMBOLOS = {"(": "tk_par_izq", ")": "tk_par_der", ":": "tk_dos_puntos", ".": "tk_punto", "=": "tk_asig", "==": "tk_igual", 
+            "!=": "tk_distinto", "->": "tk_ejecuta", "+": "tk_suma", "-": "tk_resta", "*": "tk_mul", "/": "tk_div",
+            ",": "tk_coma", ">": "tk_mayor", "<": "tk_menor"
+           }
 
 def analizar_archivo(nombre_archivo):
     try:
@@ -104,7 +90,7 @@ def tokenizar(linea, num_linea):
             while i < len(linea) and linea[i] != comilla:
                 i += 1
             if i >= len(linea):
-                error = f">>> Error léxico(linea:{num_linea},posicion:{i+1})"
+                error = f">>> Error lexico(linea:{num_linea},posicion:{i+1})"
                 return ("ERROR", tokens, error)
 
             lexema = linea[inicio+1:i]
@@ -128,3 +114,4 @@ if __name__ == "__main__":
         print("Se detectó un error léxico, revise salida.txt.")
     else:
         print("Tokens guardados en salida.txt")
+
