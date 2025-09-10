@@ -9,13 +9,16 @@ archivo como entrada y devuelva un archivo como salida.
 
 ### Alfabeto (Σ)
 
-Letras y guion bajo: a-z, A-Z, _
-Dígitos: 0-9
-Espacios en blanco: espacio, tabulador, salto de línea (isspace())
-Comillas: ' y "
-Símbolos reconocidos: ( ) : . = == != -> + - * / , > <
-'#' (para comentarios)
-Cualquier otro carácter no listado → produce error léxico.
+- Letras y guion bajo: a-z, A-Z, _
+- Dígitos: 0-9
+
+- Espacios en blanco: espacio, tabulador, salto de línea (isspace())
+
+- Comillas: ' y "
+
+- Símbolos reconocidos: ( ) : . = == != -> + - * / , > <
+- '#' (para comentarios)
+- Cualquier otro carácter no listado → produce error léxico.
 
 
 ### Estados (Q)
