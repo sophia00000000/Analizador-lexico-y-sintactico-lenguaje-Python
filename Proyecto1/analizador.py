@@ -1,7 +1,7 @@
 RESERVADAS = {"class", "def", "if", "else", "while", "for", "return", "print",
               "import", "from", "as", "True", "False", "None", "and", "or", "not",
               "in", "is", "break", "continue", "pass", "self", "object", "str", "bool"
-              , "__init__", "lambda", "assert", "async", "await", "break", "continue", "del"
+              , "__init__", "lambda", "assert", "async", "await", "continue", "del"
               , "elif", "global", "except", "finally", "nonlocal", "raise", "try", "with", "yield"
              }
 
@@ -97,15 +97,12 @@ def tokenizar(linea, num_linea):
                 inicio = i
                 comilla = ch
                 i += 1
-            elif i+1 < len(linea) and linea[i:i+2] in SIMBOLOS:
-                tokens.append(f"<{SIMBOLOS[linea[i:i+2]]},{num_linea},{i+1}>")
-                i += 2
             elif ch in SIMBOLOS:
-                tokens.append(f"<{SIMBOLOS[ch]},{num_linea},{i+1}>")
-                i += 1
+                estado = "q_simbolo"
+                inicio = i
             else:
-                error = f">>> Error léxico(linea:{num_linea},posicion:{i+1})"
-                return ("ERROR", tokens, error)
+                estado = "q_error"
+
 
 
         elif estado == "q_id":
@@ -137,6 +134,21 @@ def tokenizar(linea, num_linea):
             i += 1
             estado = "q0"
 
+        elif estado == "q_simbolo":
+            if i+1 < len(linea) and linea[i:i+2] in SIMBOLOS:
+                tokens.append(f"<{SIMBOLOS[linea[i:i+2]]},{num_linea},{i+1}>")
+                i += 2
+                estado = "q0"
+            elif ch in SIMBOLOS:
+                tokens.append(f"<{SIMBOLOS[ch]},{num_linea},{i+1}>")
+                i += 1
+                estado = "q0"
+            else:
+                estado= "q_error"
+
+        elif estado == "q_error":
+            return ("ERROR", tokens, f">>> Error léxico(linea:{num_linea},posicion:{i+1})")
+
     return tokens
 
 def guardar_salida(tokens, archivo_salida="salida.txt"):
@@ -153,6 +165,5 @@ if __name__ == "__main__":
         print("Se detectó un error léxico, revise salida.txt.")
     else:
         print("Tokens guardados en salida.txt")
-
 
 
