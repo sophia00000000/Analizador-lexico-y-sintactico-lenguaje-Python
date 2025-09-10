@@ -1,6 +1,8 @@
 RESERVADAS = {"class", "def", "if", "else", "while", "for", "return", "print",
               "import", "from", "as", "True", "False", "None", "and", "or", "not",
-              "in", "is", "break", "continue", "pass", "self", "object", "str", "bool", "__init__", "lambda"
+              "in", "is", "break", "continue", "pass", "self", "object", "str", "bool"
+              , "__init__", "lambda", "assert", "async", "await", "break", "continue", "del"
+              , "elif", "global", "except", "finally", "nonlocal", "raise", "try", "with", "yield"
              }
 
 SIMBOLOS = {"(": "tk_par_izq", ")": "tk_par_der", ":": "tk_dos_puntos", ".": "tk_punto", "=": "tk_asig", "==": "tk_igual", 
@@ -114,4 +116,5 @@ if __name__ == "__main__":
         print("Se detectó un error léxico, revise salida.txt.")
     else:
         print("Tokens guardados en salida.txt")
+
 
