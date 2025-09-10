@@ -5,9 +5,46 @@ RESERVADAS = {"class", "def", "if", "else", "while", "for", "return", "print",
               , "elif", "global", "except", "finally", "nonlocal", "raise", "try", "with", "yield"
              }
 
-SIMBOLOS = {"(": "tk_par_izq", ")": "tk_par_der", ":": "tk_dos_puntos", ".": "tk_punto", "=": "tk_asig", "==": "tk_igual", 
-            "!=": "tk_distinto", "->": "tk_ejecuta", "+": "tk_suma", "-": "tk_resta", "*": "tk_mul", "/": "tk_div",
-            ",": "tk_coma", ">": "tk_mayor", "<": "tk_menor"
+SIMBOLOS = {"(": "tk_par_izq",
+            ")": "tk_par_der", 
+            ":": "tk_dos_puntos", 
+            ".": "tk_punto", 
+            "=": "tk_asig", 
+            "==": "tk_igual", 
+            "!=": "tk_distinto", 
+            "->": "tk_ejecuta", 
+            "+": "tk_suma", 
+            "-": "tk_resta",
+            "*": "tk_mul", 
+            "/": "tk_div",
+            ",": "tk_coma", 
+            ">": "tk_mayor", 
+            "<": "tk_menor", 
+            "%": "tk_mod",
+            "[": "tk_cor_izq",
+            "]": "tk_cor_der",
+            ";": "tk_puncoma",
+            "|": "tk_abs",
+            "&": "tk_interseccion",
+            "<=": "tk_menor_igual",
+            ">=": "tk_mayor_igual",
+            "~": "tk_invertir",
+            "^": "tk_xor",
+            "<<": "tk_despla_izq",
+            ">>": "tk_despla_der",
+            "**": "tk_elevado",
+            "+=": "tk_mas_igual",
+            "-=": "tk_menos_igual",
+            "*=": "tk_mul_igual",
+            "/=": "tk_div_igual",
+            "%=": "tk_porcen_igual",
+            "&=": "tk_and_update",
+            "|=": "tk_update_conjuntos",
+            "^=": "tk_xor_update",
+            "//": "tk_div",
+            "@": "tk_decorador",
+            ":=": "tk_",
+            "!": "tk_exclamacion"
            }
 
 def analizar_archivo(nombre_archivo):
@@ -116,5 +153,6 @@ if __name__ == "__main__":
         print("Se detectó un error léxico, revise salida.txt.")
     else:
         print("Tokens guardados en salida.txt")
+
 
 
