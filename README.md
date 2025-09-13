@@ -81,5 +81,4 @@ Desde q_string:
 
 <br>
 
-## Explicación del código
 
