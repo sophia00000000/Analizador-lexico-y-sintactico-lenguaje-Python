@@ -1,14 +1,40 @@
+Gramática
+- Asignaciones
+- Expresiones aritméticas (+ - * / ( ))
+- Condicionales if/else
+- Ciclos while y for
+- listas
+- clases
+- Bloques indentados
+- Identificadores y números (id, tk_entero)
 
+- Asignaciones Variables y expresiones Expresiones aritméticas Suma, resta, multiplicación, división, paréntesis Condicionales Ciclos como while y for Bloques Secuencias de sentencias Identificadores y números Terminales básicos y que soporte identación
   
+# Analizador sintáctico
+
 Analizador sintáctico predictivo descendente LL(1) para lenguaje Python, continuación del analizador léxico del Proyecto 1.
 
- Descripción general
+Recibe como entrada el archivo salida.txt generado por el analizador léxico (analizador.py) y verifica que la secuencia de tokens cumpla con la gramática libre de contexto definida.
 
-El analizador recibe como entrada el archivo salida.txt generado por el analizador léxico (analizador.py) y verifica que la secuencia de tokens cumpla con la gramática libre de contexto definida en sintactico.py.
+Características del parser
 
-El objetivo es validar estructuras como declaraciones de clases, funciones, condicionales, bucles, listas, llamadas, asignaciones y expresiones aritméticas.
+Implementa un analizador predictivo descendente LL(1)
 
- Gramática soportada
+Construye automáticamente los conjuntos FIRST y FOLLOW
+
+Genera y utiliza una tabla LL(1) para decidir qué producción aplicar
+
+Maneja correctamente ε-producciones (vacías)
+
+Detecta y reporta errores sintácticos detallados, indicando:
+
+Línea y columna del error
+
+Token encontrado y esperado
+
+Errores específicos de indentación o dedentación
+
+### Gramática soportada
 
 La gramática está definida en formato BNF simplificado en la variable rules.
 Incluye producciones para:
@@ -27,7 +53,7 @@ Tipos y asignaciones: tipo, tipo_opc, stmt_id'
 
 Soporta listas, atributos encadenados, expresiones anidadas y bloques dependientes de indentación.
 
- Estructuras de datos utilizadas
+### Estructuras de datos utilizadas
 
 rules: lista de producciones gramaticales
 
@@ -41,23 +67,7 @@ pila: lista que actúa como pila de análisis durante el parseo
 
 tokens: lista de diccionarios que representan los tokens del archivo léxico
 
- Características del parser
-
-Implementa un analizador predictivo descendente LL(1)
-
-Construye automáticamente los conjuntos FIRST y FOLLOW
-
-Genera y utiliza una tabla LL(1) para decidir qué producción aplicar
-
-Maneja correctamente ε-producciones (vacías)
-
-Detecta y reporta errores sintácticos detallados, indicando:
-
-Línea y columna del error
-
-Token encontrado y esperado
-
-Errores específicos de indentación o dedentación
+ 
 
  Algoritmos principales
 
