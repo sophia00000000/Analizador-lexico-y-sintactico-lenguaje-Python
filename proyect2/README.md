@@ -40,18 +40,13 @@ Incluye producciones para:
 
 - Estructuras de alto nivel: programa, decl, class_decl, func_decl
 - Bloques e indentación: uso de tokens TABS (indentación) y ATRAS (dedentación)
-- Sentencias: if_stmt, while_stmt, for_stmt, print_stmt, return_stmt
-- Expresiones y operaciones: expresion, termino, factor
-- Listas y llamadas: lista, args, acceso_llamada
-- Tipos y asignaciones: tipo, tipo_opc, stmt_id'
-- Soporta listas, atributos encadenados, expresiones anidadas y bloques dependientes de indentación.
-
-- Asignaciones
-- Expresiones aritméticas (+ - * / ( ))
-- Condicionales if/else
-- Ciclos while y for
-- listas
-- clases
+- Ciclos:  while_stmt, for_stmt
+- Listas: lista, elementos
+- Tipos : tipo, tipo_opc
+- Asignaciones : stmt_id
+- Expresiones aritméticas: expresion, termino, factor (+ - * / ( )) 
+- Condicionales if/else: if_stmt, else_opc , condicion
+- Clases: class_decl, class_herencia, class_body 
 - Bloques indentados
 - Identificadores y números (id, tk_entero)
 
