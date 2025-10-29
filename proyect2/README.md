@@ -38,12 +38,12 @@ La gramática está definida en formato BNF simplificado.
 
 Incluye producciones para:
 
-- Estructuras de alto nivel: programa, decl, class_decl, func_decl
+- Estructuras de alto nivel: programa, declaracion, declaracion_clase, declaracion_funcion
 - Bloques e indentación: uso de tokens TABS (indentación) y ATRAS (dedentación)
-- Ciclos:  while_stmt, for_stmt
+- Ciclos:  sentencia_while, sentencia_for
 - Listas: lista, elementos
-- Tipos : tipo, tipo_opc
-- Asignaciones : stmt_id
+- Tipos : tipo, tipo_opcional, tipo_funcion
+- Asignaciones : sentencia_id
 - Expresiones aritméticas: expresion, termino, factor (+ - * / ( )) 
 - Condicionales if/else: if_stmt, else_opc , condicion
 - Clases: class_decl, class_herencia, class_body 
