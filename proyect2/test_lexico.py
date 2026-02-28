@@ -1,11 +1,6 @@
 import pytest
 from lexico import tokenizar
 
-
-# ============================================
-# TESTS PARAMETRIZADOS - ¡Mucho más eficiente!
-# ============================================
-
 @pytest.mark.parametrize("entrada, esperado", [
     ("123", ['<tk_entero,123,1,1>']),
     ("456", ['<tk_entero,456,1,1>']),
